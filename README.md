@@ -76,6 +76,16 @@ Poder pedirle a una formación lo siguiente:
 - si está _organizada_, o sea: adelante los vagones que llevan pasajeros, y atrás los que no. Para esto, los vagones se tienen que almacenar en una lista. Si agregamos dos vagones que llevan pasajeros, uno que no, y después uno que sí, entonces la formación no está organizada.  
 ¡Ojo! si todos los vagones de la formación llevan pasajeros, o si ninguno lleva, entonces la formación **sí** se considera organizada.
 
+
+
+/*
+(1..f.vagones().size()-1).all({e=>f.vagones().get(e).capacidadPasajeros()>f.vagones().get(e-1).capacidadPasajeros()})
+verifica lista creciente
+f.vagones() es una lista
+*/
+
+
+
 ## Tests etapa 1
 
 Vamos a verificar el comportamiento de dos formaciones, y de sus vagones.
