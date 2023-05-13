@@ -14,7 +14,7 @@ En esta etapa vamos a considerar los **vagones** de cada formación.
 En el modelo debemos incluir: vagones de pasajeros, vagones de carga, y vagones dormitorio.
 
 
-### Vagones de pasajeros
+### Vagones de pasajeros [OK]
 Para definir un vagón de pasajeros, debemos indicar el largo y el ancho medidos en metros, si tiene o no _baños_, y si está o no _ordenado_. 
 
 A partir de estos valores, la _cantidad de pasajeros_ que puede transportar un vagón se calcula de esta forma:
@@ -34,7 +34,7 @@ La cantidad máxima de _carga_ que puede llevar un vagón de pasajeros depende d
 El _peso máximo_ de un vagón de pasajeros se calcula así: 2000 kilos, más 80 kilos por cada pasajero, más el máximo de carga que puede llevar.
  
 
-### Vagones de carga
+### Vagones de carga [OK]
 Para cada vagón de carga se indica su carga máxima ideal, y cuántas maderas tiene sueltas.  
 Un vagón de carga puede llevar hasta su carga máxima ideal, menos 400 kilos por cada madera suelta.
 
@@ -45,7 +45,7 @@ No puede llevar pasajeros, y no tiene baños.
 Su _peso máximo_ es de 1500 kilos más el máximo de carga que puede llevar.
 
 
-### Vagones dormitorio
+### Vagones dormitorio [OK]
 Para cada vagón dormitorio se indica: cuántos compartimientos tiene, y cuántas camas se ponen en cada compartimiento.
 
 La _cantidad máxima de pasajeros_ es el resultado de multiplicar cantidad de compartimientos por cantidad de camas por compartimiento.
@@ -56,7 +56,7 @@ Todos los vagones dormitorio _tienen baños_, y pueden llevar hasta 1200 kilos d
 Su _peso máximo_ se calcula así: 4000 kilos, más 80 kilos por cada pasajero, más el máximo de carga que puede llevar.
 
 
-### Requerimientos - información sobre una formación
+### Requerimientos - información sobre una formación [OK]
 A partir del modelo que se construya se tiene que poder saber fácilmente, para una formación:
 - hasta cuántos pasajeros puede llevar.
 - cuántos _vagones populares_ tiene. Un vagón es popular si puede llevar más de 50 pasajeros.
@@ -72,9 +72,9 @@ Además, se tiene que poder hacer _mantenimiento_ de una formación, que implica
 
 #### Un poco más salados
 Poder pedirle a una formación lo siguiente:
-- si está _equilbrada en pasajeros_, o sea: si considerando sólo los vagones que llevan pasajeros, la diferencia entre el que más lleva y el que menos no supera los 20 pasajeros.
+- si está _equilbrada en pasajeros_, o sea: si considerando sólo los vagones que llevan pasajeros, la diferencia entre el que más lleva y el que menos no supera los 20 pasajeros. [OK]
 - si está _organizada_, o sea: adelante los vagones que llevan pasajeros, y atrás los que no. Para esto, los vagones se tienen que almacenar en una lista. Si agregamos dos vagones que llevan pasajeros, uno que no, y después uno que sí, entonces la formación no está organizada.  
-¡Ojo! si todos los vagones de la formación llevan pasajeros, o si ninguno lleva, entonces la formación **sí** se considera organizada.
+¡Ojo! si todos los vagones de la formación llevan pasajeros, o si ninguno lleva, entonces la formación **sí** se considera organizada.[??]
 
 
 

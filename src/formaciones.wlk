@@ -34,6 +34,23 @@ class Formacion{
 	method mantenimiento(){
 		formacion.forEach({v=>v.mantenimiento()})
 	}
+
+	//UN POCO MAS SALADOS
+
+	method equilibrada(){
+		return (self.vagonesMinMax().last().capacidad()-self.vagonesMinMax().first().capacidad())<=0020
+	}
+	//metodo auxiliar a equilibrada()
+	method vagonesMinMax(){
+		const lista = []
+		lista.add(formacion.min({v=>v.capacidad()}))
+		lista.add(formacion.max({v=>v.capacidad()}))
+		return lista
+	}
+	
+	
+	
+	
 	
 	
 }

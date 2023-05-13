@@ -1,0 +1,160 @@
+import formaciones.*
+import vagones.*
+
+describe "test etapa1 primera formacion"{
+		const tren1 = new Formacion() 
+
+	
+	method initialize(){
+		tren1.formacion().add(new Pasajero(ancho=4,largo=10,ordenado=true,banio=true))
+		tren1.formacion().add(new Pasajero(ancho=2,largo=7,ordenado=false,banio=false))
+		tren1.formacion().add(new Carga(cargaIdeal=6800,maderas=5))
+		tren1.formacion().add(new Dormitorio(compartimentos=8,camas=3))
+
+	}
+	test "vagon 1 capacidad debe ser 100"{
+		assert.equals(100,tren1.formacion().get(0).capacidad())
+	}
+	
+	test "vagon 2 capacidad debe ser 41"{
+		assert.equals(41,tren1.formacion().get(1).capacidad())
+	}
+	
+	test "vagon 3 capacidad debe ser 0"{
+		assert.equals(0,tren1.formacion().get(2).capacidad())
+	}
+	
+	test "vagon 4 capacidad debe ser 24"{
+		assert.equals(24,tren1.formacion().get(3).capacidad())
+	}
+	
+	test "vagon 1 pesoMax debe ser 10300"{
+		assert.equals(10300,tren1.formacion().get(0).pesoMax())
+	}
+	
+	test "vagon 2 pesoMax debe ser 6080"{
+		assert.equals(6080,tren1.formacion().get(1).pesoMax())
+	}
+	
+	test "vagon 3 pesoMax debe ser 6300"{
+		assert.equals(6300,tren1.formacion().get(2).pesoMax())
+	}
+	
+	test "vagon 4 pesoMax debe ser 7120"{
+		assert.equals(7120,tren1.formacion().get(3).pesoMax())
+	}
+	
+	test "vagon 1 cargaMax debe ser 300"{
+		assert.equals(300,tren1.formacion().get(0).cargaMax())
+	}
+	
+	test "vagon 2 cargaMax debe ser 800"{
+		assert.equals(800,tren1.formacion().get(1).cargaMax())
+	}
+	
+	test "vagon 3 cargaMax debe ser 4800"{
+		assert.equals(4800,tren1.formacion().get(2).cargaMax())
+	}
+	
+	test "vagon 4 cargaMax debe ser 1200"{
+		assert.equals(1200,tren1.formacion().get(3).cargaMax())
+	}
+	
+	test "vagon 1 banio debe ser true"{
+		assert.that(tren1.formacion().get(0).banio())
+	}
+	
+	test "vagon 2 banio debe ser false"{
+		assert.notThat(tren1.formacion().get(1).banio())
+	}
+	
+	test "vagon 3 banio debe ser false"{
+		assert.notThat(tren1.formacion().get(2).banio())
+	}
+	
+	test "vagon 4 banio debe ser true"{
+		assert.that(tren1.formacion().get(3).banio())
+	}
+	
+	test "formacion1 capacidad luego de mantenimiento es 180"{
+	tren1.mantenimiento()
+	assert.equals(180,tren1.capacidad())
+	}
+	
+	test "formacion1 vagonPopular luego de mantenimiento es 2"{
+	tren1.mantenimiento()
+	assert.equals(2,tren1.vagonPopular())
+	}
+	
+	test "formacion1 esCarguera luego de mantenimiento es false"{
+	tren1.mantenimiento()
+	assert.notThat(tren1.esCarguera())
+	}
+	
+	test "formacion1 dispersionPeso luego de mantenimiento es 3200"{
+	tren1.mantenimiento()
+	assert.equals(3200,tren1.dispersionPeso())
+	}
+	
+	test "formacion1 cantidadBanios luego de mantenimiento es 2"{
+	tren1.mantenimiento()
+	assert.equals(2,tren1.cantidadBanios())
+	}
+}
+
+describe "test etapa1 segunda formacion"{
+
+		const tren2 = new Formacion() 
+
+	method initialize(){
+		tren2.formacion().add(new Carga(cargaIdeal=8000,maderas=1))
+		tren2.formacion().add(new Dormitorio(compartimentos=15,camas=4))
+	}
+	
+	test "formacion2 capacidad antes de mantenimiento es 60"{
+	assert.equals(60,tren2.capacidad())
+	}
+	
+	test "formacion2 capacidad luego de mantenimiento es 60"{
+	tren2.mantenimiento()
+	assert.equals(60,tren2.capacidad())
+	}
+	
+	test "formacion2 vagonPopular antes de mantenimiento es 1"{
+	assert.equals(1,tren2.vagonPopular())
+	}
+	
+	test "formacion2 vagonPopular luego de mantenimiento es 1"{
+	tren2.mantenimiento()
+	assert.equals(1,tren2.vagonPopular())
+	}
+	
+	test "formacion2 esCarguera antes de mantenimiento es true"{
+	assert.that(tren2.esCarguera())
+	}
+	
+	test "formacion2 esCarguera luego de mantenimiento es true"{
+	tren2.mantenimiento()
+	assert.that(tren2.esCarguera())
+	}
+	
+	test "formacion2 dispersionPeso antes de mantenimiento es 900"{
+	assert.equals(900,tren2.dispersionPeso())
+	}
+	
+	test "formacion2 dispersionPeso luego de mantenimiento es 500"{
+	tren2.mantenimiento()
+	assert.equals(500,tren2.dispersionPeso())
+	}
+	
+	test "formacion2 cantidadBanios antes de mantenimiento es 1"{
+	assert.equals(1,tren2.cantidadBanios())
+	}
+	
+	test "formacion2 cantidadBanios luego de mantenimiento es 1"{
+	tren2.mantenimiento()
+	assert.equals(1,tren2.cantidadBanios())
+	}
+
+}
+
