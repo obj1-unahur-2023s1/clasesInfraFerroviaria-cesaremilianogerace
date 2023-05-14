@@ -1,0 +1,42 @@
+import formaciones.*
+import vagones.*
+
+describe "test etapa2 primera formacion"{
+		const tren1 = new Formacion() 
+
+	method initialize(){
+		tren1.formacion().add(new Pasajero(ancho=4,largo=10,ordenado=true,banio=true))
+		tren1.formacion().add(new Pasajero(ancho=2,largo=7,ordenado=false,banio=false))
+		tren1.formacion().add(new Carga(cargaIdeal=6800,maderas=5))
+		tren1.formacion().add(new Dormitorio(compartimentos=8,camas=3))
+		tren1.formacion().add(new Locomotora(peso=3000,arrastre=20000,velocidadMax=120))
+	}
+	
+	test"primera formacion es eficiente"{
+		assert.that(tren1.eficiente())
+	}
+	
+	test"primera formacion no puede moverse"{
+		assert.notThat(tren1.puedeMover())
+	}
+	
+	test"primera formacion le falta empuje de 12800"{
+		assert.equals(12800,tren1.empujeFaltante())
+	}
+	
+	test"primera formacion NO es eficiente ahora"{
+		tren1.formacion().add(new Locomotora(peso=5000,arrastre=22000,velocidadMax=100))
+		assert.notThat(tren1.eficiente())
+	}
+	
+	test"primera formacion puede moverse ahora"{
+		tren1.formacion().add(new Locomotora(peso=5000,arrastre=22000,velocidadMax=100))
+		assert.that(tren1.puedeMover())
+	}
+	
+	test"primera formacion le falta empuje de 0"{
+		tren1.formacion().add(new Locomotora(peso=5000,arrastre=22000,velocidadMax=100))
+		assert.equals(0,tren1.empujeFaltante())
+	}
+	
+}

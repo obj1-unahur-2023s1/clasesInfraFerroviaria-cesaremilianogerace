@@ -27,6 +27,10 @@ class Pasajero{
 		ordenado = true
 	}
 	
+	//POLIMORFISMO
+	method eficiente()=0
+	method arrastre() = 0
+	method velocidadMax() = 0
 }
 
 class Carga{
@@ -48,6 +52,11 @@ class Carga{
 	method mantenimiento(){
 		maderas = 0.max(maderas-2)
 	}
+	
+	//POLIMORFISMO
+	method eficiente()=0
+	method arrastre() = 0
+	method velocidadMax() = 0
 }
 
 class Dormitorio{
@@ -62,7 +71,27 @@ class Dormitorio{
 	method cargaMax() = 1200
 	
 	method pesoMax() = 4000+80*self.capacidad()+self.cargaMax()
-
+	
+	//POLIMORFISMO
 	method mantenimiento(){}
+	method eficiente()=0//
+	method arrastre() = 0
+	method velocidadMax() = 0
 }
 
+class Locomotora{
+	const property peso
+	const property arrastre
+	const property velocidadMax
+	
+	method eficiente(){
+		return arrastre>=5*peso
+	}
+	
+	//POLIMORFISMO
+	method capacidad()=0
+	method banio()=false
+	method cargaMax()=0
+	method pesoMax()= peso
+	method mantenimiento(){}
+}

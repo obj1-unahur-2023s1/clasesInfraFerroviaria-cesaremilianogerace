@@ -1,7 +1,10 @@
 import vagones.*
 
+
 class Formacion{
 	const property formacion = []
+
+//ETAPA 1
 	
 	method capacidad(){
 		return formacion.sum({v=>v.capacidad()})
@@ -48,8 +51,28 @@ class Formacion{
 		return lista
 	}
 	
+//ETAPA 2
 	
+	method velocidadMax(){
+		return formacion.filter({x=>x.velocidadMax()>0}).map({x=>x.velocidadMax()}).min()
+	}
 	
+	method eficiente(){
+		//return (formacion.filter({x=>x.eficiente() == true})+formacion.filter({x=>x.eficiente() == false})).all({x=>x.eficiente()})
+		return (formacion.count({x=>x.eficiente()==false}))==0
+	}
+	
+	method puedeMover(){
+		return formacion.sum({v=>v.arrastre()})>=self.pesoTotal()
+	}
+	//metodo auxiliar a puedeMover()
+	method pesoTotal(){
+		return formacion.sum({v=>v.pesoMax()})
+	}
+	
+	method empujeFaltante(){
+		return 0.max(self.pesoTotal()-formacion.sum({v=>v.arrastre()}))
+	}
 	
 	
 	

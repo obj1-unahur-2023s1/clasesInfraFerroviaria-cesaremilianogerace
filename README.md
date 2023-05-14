@@ -159,7 +159,7 @@ P.ej. si una formación tiene una locomotora que pesa 1000 kilos y arrastra hast
 Si agregamos dos vagones más de 6000 kilos, llevamos el peso máximo a 37000. Ahora la formación no puede moverse y le faltan 7000 kilos de empuje.
 
 
-## Tests etapa 2
+## Tests etapa 2[OK]
 
 Consideremos la primera formación de los tests de la etapa 1, sin hacerle mantenimiento. Contando sólo los vagones, el peso máximo es 29800.
 
